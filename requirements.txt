@@ -11,6 +11,7 @@ docstring_parser==0.16
 et-xmlfile==1.1.0
 faiss-cpu==1.8.0
 flatbuffers==24.3.25
+Flask~=2.3.2
 gast==0.5.4
 google-ai-generativelanguage==0.6.4
 google-api-core==2.19.0
@@ -73,3 +74,8 @@ webencodings==0.5.1
 xformers==0.0.26.post1
 xxhash==3.4.1
 
+
+werkzeug~=2.3.6
+pypdf2~=2.10.5
+langchain~=0.2.5
+python-dotenv~=0.21.0
