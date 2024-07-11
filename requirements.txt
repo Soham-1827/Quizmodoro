@@ -32,7 +32,7 @@ keras==3.3.3
 langchain-google-genai==1.0.6
 libclang==18.1.1
 mkl==2021.4.0
-mkl-service==2.4.0
+mkl-service==2.4.1
 ml-dtypes==0.3.2
 multiprocess==0.70.16
 munkres==1.1.4
