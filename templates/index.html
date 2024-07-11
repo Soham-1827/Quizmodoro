@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container mt-sm-5 my-1">
+        <h1>Welcome to the Quiz App</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".pdf">
+            <button type="submit" class="btn btn-primary">Upload File</button>
+        </form>
+    </div>
+</body>
+</html>

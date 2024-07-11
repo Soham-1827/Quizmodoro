@@ -1,0 +1,81 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Quiz</title>-->
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">-->
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="container mt-sm-5 my-1">-->
+<!--        <form method="POST" action="{{ url_for('quiz') }}">-->
+<!--            <div class="question">-->
+<!--                <p>{{ question[0] }}</p>-->
+<!--                <div class="options">-->
+<!--                    {% for option in question[1] %}-->
+<!--                        <label>-->
+<!--                            <input type="radio" name="option" value="{{ loop.index0 }}" required>-->
+<!--                            <span class="checkmark"></span>-->
+<!--                            {{ option }}-->
+<!--                        </label>-->
+<!--                    {% endfor %}-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <button type="submit" class="btn btn-primary">{{ 'Next' if index < total-1 else 'Submit' }}</button>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container mt-sm-5 my-1">
+        <form method="POST" action="{{ url_for('quiz') }}">
+            <div class="question">
+                <p>{{ question[0] }}</p>
+                <div class="options">
+                    {% for option in question[1] %}
+                        <label>
+                            <input type="radio" name="option" value="{{ loop.index0 }}" required>
+                            <span class="checkmark"></span>
+                            {{ option }}
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">{{ 'Next' if index < total-1 else 'Submit' }}</button>
+        </form>
+        {% if feedback %}
+        <div class="feedback mt-3">
+            <p>{{ feedback }}</p>
+        </div>
+        {% endif %}
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+<script>
+    window.addEventListener('pageshow', function (event) {
+        if (event.persisted) {
+            window.location.href = "/pomodoro";
+        }
+    });
+
+    window.addEventListener('load', function () {
+        if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
+            window.location.href = "/pomodoro";
+        }
+    });
+</script>
+</script>
+</body>
+</html>

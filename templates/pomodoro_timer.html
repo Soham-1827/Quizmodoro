@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+        body {
+            background-image: url("Custom dimensions 1920x1080 px.gif");
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+        }
+        #timer-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #timer-display {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .btn {
+            width: 100%;
+            margin-top: 10px;
+        }
+        #upload-container {
+            display: none;
+            margin: auto;
+            width: 50%;
+            padding: 10px 200px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2em;
+        }
+        .form-group label {
+            font-size: 1.2em;
+        }
+        .form-group input {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div id="timer-container" class="text-center">
+        <h1 class="my-4">Pomodoro Timer</h1>
+        <div id="timer-display" class="mb-3">00:00</div>
+        <div class="form-group">
+            <label for="duration-input">Duration (minutes):</label>
+            <input type="number" id="duration-input" class="form-control" min="1" value="" />
+        </div>
+        <button id="start-btn" class="btn btn-primary">Start</button>
+        <button id="stop-btn" class="btn btn-danger">Stop</button>
+        <button id="pause-btn" class="btn btn-secondary">Pause</button>
+        <button id="skip-btn" class="btn btn-warning">Skip to Upload</button>
+    </div>
+    <div id="upload-container" class="text-center mt-4">
+        <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" id="file-input" name="file" class="form-control-file" accept="application/pdf" />
+            <button type="submit" class="btn btn-success">Upload</button>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/popper.min.js"></script>
+<script>
+    window.addEventListener('pageshow', function (event) {
+        if (event.persisted) {
+            window.location.href = "/pomodoro";
+        }
+    });
+
+    window.addEventListener('load', function () {
+        if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
+            window.location.href = "/pomodoro";
+        }
+    });
+</script>
+</body>
+</html>
