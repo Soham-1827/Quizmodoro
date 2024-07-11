@@ -51,7 +51,6 @@ PyDispatcher==2.0.5
 pyls-spyder==0.4.0
 PyQt5==5.15.10
 PyQtWebEngine==5.15.6
-pywin32==306
 rsa==4.9
 safetensors==0.4.3
 sentencepiece==0.2.0
